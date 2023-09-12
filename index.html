@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Titillium+Web&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>YouTube Video Summarizer</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="main-container">
+        <header>
+          <img src="./web/assets/img/play.svg" alt="Play icon" />
+          <h1>YouTube Video Summarizer</h1>
+        </header>
+        <main>
+          <form id="form" action="">
+            <div class="input-form">
+              <label for="url-input" class="sr-only"
+                >Enter a YouTube Video URL</label
+              >
+              <input
+                type="url"
+                id="url-input"
+                placeholder="Enter a YouTube Video URL"
+              />
+            </div>
+            <div class="input-submit">
+              <button title="Summarize" type="submit">
+                <img src="./web/assets/img/play_icon.svg" alt="Play icon" />
+              </button>
+            </div>
+          </form>
+          <div class="summary">
+            <h2>Summary</h2>
+            <p>The summary is being generated. Please wait...</p>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="./web/main.js"></script>
+  </body>
+</html>
