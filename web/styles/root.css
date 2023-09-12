@@ -1,0 +1,16 @@
+:root {
+  font-size: 65.2%;
+
+  --ff-roboto: "Roboto", sans-serif;
+  --ff-titillium: "Titillium Web", sans-serif;
+
+  --white: #fff;
+  --gray: #7c7c8a;
+  --gray-dark: #3c3c3c;
+  --red-primary: #ff6d6d;
+  --red-seconday: #e55757;
+  --background: #121214;
+  --background-dark: #202024;
+  --background-light: #282828;
+  --outline: rgba(229, 87, 87, 0.4);
+}
