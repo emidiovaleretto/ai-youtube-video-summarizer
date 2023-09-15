@@ -18,9 +18,13 @@ form.addEventListener("submit", async (event) => {
 
   const [path, id] = url.split("=")
 
+  error.classList.add("hidden")
+  input.style.border = "1px solid #ccc"
   content.textContent = "Getting video content..."
 
   const transcription = await server.get(`/summary/v=${id}`)
+
+  console.log(transcription.data.result)
 
   content.textContent = transcription.data.result
 })
