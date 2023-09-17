@@ -23,6 +23,15 @@
         <h1>YouTube Video Summarizer</h1>
       </header>
       <main>
+        <div class="instructions">
+          <h2>Instructions:</h2>
+          <ol>
+            <li>Enter a YouTube Video URL</li>
+            <li>The URL must look like https://www.youtube.com/watch?v=XXXXXXXXXXX</li>
+            <li>Once you enter the URL, do not refresh the page until the summary is generated.</li>
+            <li>Note: depending on the length of the video, it may take a few minutes to generate the summary.</li>
+          </ol>
+        </div>
         <form id="form" action="">
           <div class="input-form">
             <label for="url-input" class="sr-only">Enter a YouTube Video URL</label>
@@ -37,11 +46,18 @@
         <p class="error hidden">
           Invalid URL. Please verify the Video URL and try again.
         </p>
-        <div class="summary">
+        <div class="summary modal hidden">
           <h2>Summary</h2>
           <p id="content" class="placeholder">
-            The summary is being generated. Please wait...
+            <!-- The summary is being generated. Please wait... -->
           </p>
+          <button class="copy" title="Copy">
+            <i class="ph ph-copy"></i>
+            <span>Copy</span>
+          </button>
+          <button class="close-modal" title="Close">
+            <i class="ph ph-x"></i>
+          </button>
         </div>
       </main>
     </div>
