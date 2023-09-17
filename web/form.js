@@ -6,6 +6,29 @@ const button = document.querySelector('.input-submit button')
 const content = document.querySelector('#content')
 const error = document.querySelector('.error')
 const loading = document.querySelector('.overlay')
+const modal = document.querySelector('.modal')
+
+const closeModal = document.querySelector('.close-modal')
+const copyButton = document.querySelector('.copy')
+
+copyButton.addEventListener('click', () => {
+  copyButton.classList.add('copied')
+
+  const range = document.createRange()
+  range.selectNode(content)
+  window.getSelection().removeAllRanges()
+  window.getSelection().addRange(range)
+  document.execCommand('copy')
+  window.getSelection().removeAllRanges()
+
+  setTimeout(() => {
+    copyButton.classList.remove('copied')
+  }, 1000)
+})
+
+closeModal.addEventListener('click', () => {
+  modal.classList.add('hidden')
+})
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault()
@@ -32,6 +55,7 @@ form.addEventListener('submit', async (event) => {
 
   content.textContent = transcription.data.result
 
+  modal.classList.remove('hidden')
   content.classList.remove('placeholder')
   button.classList.remove('disabled')
   loading.classList.add('hidden')
