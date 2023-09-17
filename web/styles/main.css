@@ -40,7 +40,7 @@ body {
   font-size: 4rem;
   font-weight: 700;
   color: var(--red-primary);
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
 }
 
 .sr-only {
@@ -53,6 +53,31 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.instructions h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.7rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.instructions ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.instructions ol li {
+  font-size: 1.2rem;
+  font-weight: 400;
+  list-style: none;
+  text-align: center;
+  color: #c9c7c7;
 }
 
 main form {
@@ -146,17 +171,78 @@ main form {
   margin-bottom: 3.2rem;
 }
 
+.modal,
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: 999;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  top: 50%;
+  left: 50%;
+  width: 80rem;
+  height: 50rem;
+  background-color: var(--background-dark);
+  border-radius: 0.6rem;
+  transform: translate(-50%, -50%);
+  padding: 2.4rem;
+}
+
+.close-modal {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 2.4rem;
+  right: 2.4rem;
+  font-size: 1.8rem;
+  color: var(--gray-dark);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.close-modal:hover {
+  transform: scale(1.2);
+}
+
+.copy {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: .6rem;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  text-shadow: rgb(0 0 0 / 25%) 0 .4rem .8rem;
+
+  outline: 0;
+  border: 0;
+  border-radius: .6rem;
+  padding: .8rem 1.6rem;
+  background: linear-gradient(92.88deg, rgb(181, 69, 69) 9.16%, rgb(204, 67, 67) 43.89%, rgb(215, 63, 63) 64.72%);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.copy:hover {
+  box-shadow: rgb(205 63 63 / 50%) 0 .1rem 4rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.copied {
+  background: var(--green);
+  color: var(--green);
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .loading {
@@ -174,51 +260,51 @@ main form {
 
 @keyframes loading {
   0% {
-    box-shadow: white 0 0 15px 0, #f86 -1.4rem -1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 -1.4rem -1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
   }
 
   8.33% {
-    box-shadow: white 0 0 15px 0, #f86 1.4rem -1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 1.4rem -1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
   }
 
   16.67% {
-    box-shadow: white 0 0 15px 0, #f86 1.4rem 1.4rem 0 .7rem, #fc6 1.4rem 1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 1.4rem 1.4rem 0 .7rem, #fc6 1.4rem 1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
   }
 
   25% {
-    box-shadow: white 0 0 15px 0, #f86 -1.4rem 1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 -1.4rem 1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
   }
 
   33.33% {
-    box-shadow: white 0 0 15px 0, #f86 -1.4rem -1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae -1.4rem -1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 -1.4rem -1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae -1.4rem -1.4rem 0 .7rem;
   }
 
   41.67% {
-    box-shadow: white 0 0 15px 0, #f86 1.4rem -1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 1.4rem -1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
   }
 
   50% {
-    box-shadow: white 0 0 15px 0, #f86 1.4rem 1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 1.4rem 1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
   }
 
   58.33% {
-    box-shadow: white 0 0 15px 0, #f86 -1.4rem 1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 -1.4rem 1.4rem 0 .7rem, #fc6 -1.4rem 1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
   }
 
   66.67% {
-    box-shadow: white 0 0 15px 0, #f86 -1.4rem -1.4rem 0 .7rem, #fc6 -1.4rem -1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 -1.4rem -1.4rem 0 .7rem, #fc6 -1.4rem -1.4rem 0 .7rem, #6d7 -1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
   }
 
   75% {
-    box-shadow: white 0 0 15px 0, #f86 1.4rem -1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 1.4rem -1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem -1.4rem 0 .7rem, #4ae 1.4rem -1.4rem 0 .7rem;
   }
 
   83.33% {
-    box-shadow: white 0 0 15px 0, #f86 1.4rem 1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae 1.4rem 1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 1.4rem 1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae 1.4rem 1.4rem 0 .7rem;
   }
 
   91.67% {
-    box-shadow: white 0 0 15px 0, #f86 -1.4rem -1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
+    box-shadow: rgba(255, 255, 255, 0.8) 0 0 1.5rem 0, #f86 -1.4rem -1.4rem 0 .7rem, #fc6 1.4rem -1.4rem 0 .7rem, #6d7 1.4rem 1.4rem 0 .7rem, #4ae -1.4rem 1.4rem 0 .7rem;
   }
 }
 
