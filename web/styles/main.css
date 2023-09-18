@@ -186,6 +186,11 @@ main form {
   margin-bottom: 3.2rem;
 }
 
+.summary h2,
+.summary button {
+  align-self: flex-start;
+}
+
 .modal,
 .overlay {
   position: fixed;
@@ -193,7 +198,7 @@ main form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .modal {
