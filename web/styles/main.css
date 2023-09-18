@@ -118,11 +118,6 @@ main form {
   background-color: var(--red-primary-hover);
 }
 
-.input-submit button.disabled {
-  background-color: var(--gray-dark);
-  cursor: not-allowed;
-}
-
 .input-submit button i {
   display: flex;
   justify-content: center;
