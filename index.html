@@ -1,69 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Titillium+Web&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <title>YouTube Video Summarizer</title>
+  </head>
 
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Titillium+Web&display=swap"
-    rel="stylesheet" />
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-  <title>YouTube Video Summarizer</title>
-</head>
-
-<body>
-  <div id="app">
-    <div class="main-container">
-      <div class="overlay hidden">
-        <div class="loading"></div>
-      </div>
-      <header>
-        <img src="./play.svg" alt="Play icon" />
-        <h1>YouTube Video Summarizer</h1>
-      </header>
-      <main>
-        <div class="instructions">
-          <h2>Instructions:</h2>
-          <ol>
-            <li>Enter a YouTube Video URL</li>
-            <li>The URL must look like https://www.youtube.com/watch?v=XXXXXXXXXXX</li>
-            <li>Once you enter the URL, do not refresh the page until the summary is generated.</li>
-            <li>Note: depending on the length of the video, it may take a few minutes to generate the summary.</li>
-          </ol>
+  <body>
+    <div id="app">
+      <div class="main-container">
+        <div class="overlay hidden">
+          <div class="loading"></div>
         </div>
-        <form id="form" action="">
-          <div class="input-form">
-            <label for="url-input" class="sr-only">Enter a YouTube Video URL</label>
-            <input type="url" id="url-input" placeholder="Enter a YouTube Video URL" />
+        <header>
+          <img src="./play.svg" alt="Play icon" />
+          <h1>YouTube Video Summarizer</h1>
+        </header>
+        <main>
+          <div class="instructions">
+            <h2>Instructions:</h2>
+            <ol>
+              <li>Enter a YouTube Video URL</li>
+              <li>
+                The URL must look like
+                https://www.youtube.com/watch?v=XXXXXXXXXXX
+              </li>
+              <li>
+                Once you enter the URL, do not refresh the page until the
+                summary is generated.
+              </li>
+              <li>
+                Note: depending on the length of the video, it may take a few
+                minutes to generate the summary.
+              </li>
+            </ol>
           </div>
-          <div class="input-submit">
-            <button title="Summarize" type="submit">
-              <i class="ph ph-play"></i>
+          <form id="form" action="">
+            <div class="input-form">
+              <label for="url-input" class="sr-only"
+                >Enter a YouTube Video URL</label
+              >
+              <input
+                type="url"
+                id="url-input"
+                placeholder="Enter a YouTube Video URL"
+              />
+            </div>
+            <div class="input-submit">
+              <button title="Summarize" type="submit">
+                <i class="ph ph-play"></i>
+              </button>
+            </div>
+          </form>
+          <p class="error hidden">
+            Invalid URL. Please verify the Video URL and try again.
+          </p>
+          <div class="summary modal">
+            <iframe
+              src=""
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <h2>Summary</h2>
+            <p id="content" class="placeholder"></p>
+            <button class="copy" title="Copy">
+              <i class="ph ph-copy"></i>
+              <span>Copy</span>
+            </button>
+            <button class="close-modal" title="Close">
+              <i class="ph ph-x"></i>
             </button>
           </div>
-        </form>
-        <p class="error hidden">
-          Invalid URL. Please verify the Video URL and try again.
-        </p>
-        <div class="summary modal hidden">
-          <h2>Summary</h2>
-          <p id="content" class="placeholder">
-            <!-- The summary is being generated. Please wait... -->
-          </p>
-          <button class="copy" title="Copy">
-            <i class="ph ph-copy"></i>
-            <span>Copy</span>
-          </button>
-          <button class="close-modal" title="Close">
-            <i class="ph ph-x"></i>
-          </button>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
-  </div>
-  <script type="module" src="./web/main.js"></script>
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</body>
-
+    <script type="module" src="./web/main.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </body>
 </html>
